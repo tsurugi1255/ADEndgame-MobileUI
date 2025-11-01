@@ -63,7 +63,7 @@ export default {
       id="notification-container"
       class="l-notification-container"
     />
-    <HowToPlay :style="hideIfMatoFullscreen" />
+    <!-- <HowToPlay :style="hideIfMatoFullscreen" /> -->
     <!-- <TimeTheoremShop
       v-if="view.subtab === 'studies'"
       class="l-time-studies-tab__tt-shop"
