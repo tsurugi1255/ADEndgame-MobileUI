@@ -31,7 +31,7 @@ export default {
     v-if="!isHidden"
     class="c-modern-sidebar"
   >
-    <ModernSidebarCurrency />
+    <!-- <ModernSidebarCurrency /> -->
     <template
       v-for="(tab, tabPosition) in tabs"
     >
