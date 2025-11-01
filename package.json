@@ -1,12 +1,15 @@
 {
   "private": true,
+  "homepage": "https://tsurugi1255.github.io/ADEndgame-MobileUI/",
   "scripts": {
     "serve": "node build/check-npm.js && vue-cli-service serve",
     "build:master": "node build/pre-build.js && vue-cli-service build --mode master && node build/post-build.js",
     "build:release": "node build/pre-build.js && vue-cli-service build && node build/post-build.js",
     "build:steam-development": "node build/pre-build.js && vue-cli-service build --mode steam-development",
     "build:steam-release": "node build/pre-build.js && vue-cli-service build --mode steam-release",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "predeploy": "rimraf dist",
+    "deploy": "npm run build:release && gh-pages -d dist"
   },
   "dependencies": {
     "@antimatter-dimensions/notations": "^3.1.0",
@@ -45,7 +48,9 @@
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^8.0.3",
+    "gh-pages": "^6.3.0",
     "postcss-html": "^1.4.1",
+    "rimraf": "^6.1.0",
     "stylelint": "^14.8.2",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^25.0.0",
