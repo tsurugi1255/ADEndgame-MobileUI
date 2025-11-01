@@ -1,4 +1,5 @@
 # Antimatter Dimensions
+This is a forked repository of Supersonic-seven's [Antimatter Dimensions: Endgame](https://github.com/Supersonic-Seven/AntimatterDimensionsEndgameUpdate) mod. The purpose of this fork is to enable playability on a mobile web browser, with purely visual changes. Credit of the mod belongs entirely to [Supersonic-seven](https://github.com/Supersonic-Seven).
 
 ## Run
 
