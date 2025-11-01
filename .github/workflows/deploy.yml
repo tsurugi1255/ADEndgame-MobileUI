@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main  # change if your default branch is different
-      
+
 permissions:
   contents: write 
 
@@ -37,4 +37,5 @@ jobs:
           branch: gh-pages        # target branch
           folder: dist            # folder to deploy
           clean: true             # remove old files
-          token: ${{ secrets.GH_PAT }} #pat
+          token: ${{ secrets.GITHUB_TOKEN }}
+
