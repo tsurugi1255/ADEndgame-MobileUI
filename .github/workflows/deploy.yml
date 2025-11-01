@@ -34,3 +34,4 @@ jobs:
           branch: gh-pages        # target branch
           folder: dist            # folder to deploy
           clean: true             # remove old files
+          token: ${{ secrets.GITHUB_TOKEN }}
