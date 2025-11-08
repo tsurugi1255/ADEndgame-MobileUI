@@ -1,12 +1,14 @@
 <script>
 import DilationButton from "./DilationButton";
 import DilationUpgradeButton from "./DilationUpgradeButton";
+import HoldableButton from "@/components/HoldableButton";
 
 export default {
   name: "TimeDilationTab",
   components: {
     DilationButton,
-    DilationUpgradeButton
+    DilationUpgradeButton,
+    HoldableButton
   },
   data() {
     return {
@@ -29,9 +31,13 @@ export default {
   computed: {
     rebuyables() {
       return [
-        DilationUpgrade.dtGain,
-        DilationUpgrade.galaxyThreshold,
-        DilationUpgrade.tachyonGain
+        [
+          DilationUpgrade.dtGain,
+        ],
+        [
+          DilationUpgrade.galaxyThreshold,
+          DilationUpgrade.tachyonGain
+        ]
       ];
     },
     upgrades() {
@@ -39,12 +45,14 @@ export default {
         [
           DilationUpgrade.doubleGalaxies,
           DilationUpgrade.tdMultReplicanti,
-          DilationUpgrade.ndMultDT
         ],
         [
+          DilationUpgrade.ndMultDT,
           DilationUpgrade.ipMultDT,
+        ],
+        [
           DilationUpgrade.timeStudySplit,
-          DilationUpgrade.dilationPenalty
+          DilationUpgrade.dilationPenalty,
         ],
       ];
     },
@@ -56,10 +64,19 @@ export default {
     },
     pelleRebuyables() {
       return [
-        DilationUpgrade.dtGainPelle,
-        DilationUpgrade.galaxyMultiplier,
-        DilationUpgrade.tickspeedPower
+        [
+          DilationUpgrade.dtGainPelle,
+        ],
+        [
+          DilationUpgrade.galaxyMultiplier,
+          DilationUpgrade.tickspeedPower
+        ]
       ];
+    },
+    ttGenerator() {
+      return [
+        DilationUpgrade.ttGenerator
+      ]
     },
     pelleUpgrades() {
       return [
@@ -67,24 +84,21 @@ export default {
         DilationUpgrade.flatDilationMult
       ];
     },
-    ttGenerator() {
-      return DilationUpgrade.ttGenerator;
-    },
     baseGalaxyText() {
       return `${formatInt(this.baseGalaxies)} Base`;
     },
     hasMaxText: () => PlayerProgress.realityUnlocked() && !Pelle.isDoomed,
     allRebuyables() {
       const upgradeRows = [];
-      upgradeRows.push(this.rebuyables);
-      if (this.hasPelleDilationUpgrades) upgradeRows.push(this.pelleRebuyables);
+      upgradeRows.push(...this.rebuyables);
+      if (this.hasPelleDilationUpgrades) upgradeRows.push(...this.pelleRebuyables);
       return upgradeRows;
     },
     allSingleUpgrades() {
       const upgradeRows = [];
       upgradeRows.push(...this.upgrades);
       if (this.hasPelleDilationUpgrades) upgradeRows.push(this.pelleUpgrades);
-      upgradeRows.push([this.ttGenerator]);
+      upgradeRows.push(this.ttGenerator);
       return upgradeRows;
     },
   },
@@ -122,7 +136,13 @@ export default {
       else this.toMaxTooltip = estimateText.startsWith("<") ? "Currently Increasing" : estimateText;
 
       this.isEndgameUnlocked = PlayerProgress.endgameUnlocked();
+      this.isRealityUnlocked = PlayerProgress.realityUnlocked();
       this.scaleStart = DilationUpgradeScaling.PRIMARY_SCALING;
+    },
+    buyAllRebuyables() {
+      for(const id of this.allRebuyablesUpgradeOrder) {
+        buyDilationUpgrade(id, 1000);
+      }
     }
   }
 };
@@ -172,11 +192,19 @@ export default {
     <span v-if="isEndgameUnlocked">
       Past {{ format(scaleStart, 2, 1) }} Dilated Time, all rebuyable Dilation Upgrades will scale faster.
     </span>
+    <HoldableButton
+      v-if="isEndgameUnlocked || isRealityUnlocked" 
+      className="maxButton" 
+      onHoldClass="maxButtonPressed"
+      :onHoldFunction="buyAllRebuyables
+    ">
+      Max All Rebuyables
+    </HoldableButton>
     <div class="l-dilation-upgrades-grid">
       <div
         v-for="(upgradeRow, row) in allRebuyables"
         :key="'rebuyable' + row"
-        class="l-dilation-upgrades-grid__row"
+        class="l-dilation-upgrades-grid__row l-dilation-upgrades-grid__row__rebuyable" 
       >
         <DilationUpgradeButton
           v-for="upgrade in upgradeRow"
@@ -190,7 +218,7 @@ export default {
       <div
         v-for="(upgradeRow, row) in allSingleUpgrades"
         :key="'single' + row"
-        class="l-dilation-upgrades-grid__row"
+        class="l-dilation-upgrades-grid__row  l-dilation-upgrades-grid__row__single"
       >
         <DilationUpgradeButton
           v-for="upgrade in upgradeRow"
@@ -213,18 +241,55 @@ export default {
   cursor: default;
 }
 
+.maxButton {
+  font-size: 2rem;
+  color: var(--color-text);
+  background-color: var(--color-base);
+  width: calc(50% - 0.5rem);
+  padding: 1rem;
+  font-family: TypeWriter, serif;
+  border: 0.1rem solid var(--color-good-dark);
+  border-radius: var(--var-border-radius, 1rem);
+  margin-top: 2rem;
+  pointer-events: all;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.maxButtonPressed {
+  color: var(--color-text-inverted);
+  background-color: var(--color-good);
+}
+
 .l-dilation-upgrades-grid {
   display: flex;
   flex-direction: column;
+  width: 98%;
+  margin-top: 1.5rem;
 }
 
 .l-dilation-upgrades-grid__row {
   display: flex;
   flex-direction: row;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
   justify-content: center;
 }
 
+.l-dilation-upgrades-grid__row__rebuyable:nth-child(odd) > .l-dilation-upgrades-grid__cell,
+.l-dilation-upgrades-grid__row__single:last-child > .l-dilation-upgrades-grid__cell {
+  width: 50%;
+}
+
 .l-dilation-upgrades-grid__cell {
-  margin: 1.2rem 1.5rem;
+  width: 100%;
+}
+
+span {
+  font-size: 2.2rem;
+}
+
+span[class] {
+  font-size: 4.4rem;
 }
 </style>
