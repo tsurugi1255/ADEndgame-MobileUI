@@ -1623,8 +1623,8 @@ br {
 }
 
 .c-wide-canvas-element {
-  width: 950px;
-  height: 600px;
+  width: 100vw;
+  height: 75vh;
 }
 
 ._kong-test .c-game-ui {
@@ -9270,7 +9270,6 @@ input.o-automator-block-input {
 .c-perk-network {
   overflow: hidden;
   position: relative;
-  border: var(--var-border-width, 0.2rem) solid black;
   border-radius: var(--var-border-radius, 0.4rem);
   -webkit-user-select: none;
   user-select: none;
