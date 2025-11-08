@@ -78,7 +78,7 @@ body.t-s12 {
   flex-direction: row;
   width: 100vw;
   height: var(--navbar-height);
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: var(--navbar-height);
   z-index: 5;
@@ -87,7 +87,7 @@ body.t-s12 {
   -ms-overflow-style: none;
   scrollbar-width: none;
   border: none;
-  background-color: var(--color-base);
+  background-color: var(--color-base)
 }
 
 .c-modern-sidebar::-webkit-scrollbar {
@@ -233,10 +233,10 @@ body.t-s12 {
 }
 
 .o-tab-btn--subtab {
-  flex: 1 1 35%;
-  min-width: 35%;
-  /* text-wrap: wrap;
-  padding: 0.2rem; */
+  flex: 1 1 25%;
+  min-width: 25%;
+  text-wrap: wrap;
+  padding: 0.5rem;
   height: 100%;
   font-size: 2.5rem;
   line-height: 4.5rem;
