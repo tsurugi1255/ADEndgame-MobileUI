@@ -8,7 +8,7 @@ export const tabs = [
     subtabs: [
       {
         key: "antimatter",
-        name: "Antimatter Dimensions",
+        name: "Antimatter Dim.",
         symbol: "Ω",
         component: "AntimatterDimensionsTab",
         id: 0,
@@ -16,7 +16,7 @@ export const tabs = [
       },
       {
         key: "infinity",
-        name: "Infinity Dimensions",
+        name: "Infinity Dim.",
         hideAt: 2.7,
         symbol: "∞",
         component: "InfinityDimensionsTab",
@@ -30,7 +30,7 @@ export const tabs = [
       },
       {
         key: "time",
-        name: "Time Dimensions",
+        name: "Time Dim.",
         hideAt: 2.6,
         symbol: "Δ",
         component: "TimeDimensionsTab",
@@ -40,7 +40,7 @@ export const tabs = [
       },
       {
         key: "celestial",
-        name: "Celestial Dimensions",
+        name: "Celestial Dim.",
         hideAt: 2.5,
         symbol: "✯",
         component: "CelestialDimensionsTab",
