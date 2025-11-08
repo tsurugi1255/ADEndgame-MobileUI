@@ -78,7 +78,7 @@ body.t-s12 {
   flex-direction: row;
   width: 100vw;
   height: var(--navbar-height);
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: var(--navbar-height);
   z-index: 5;
@@ -87,6 +87,7 @@ body.t-s12 {
   -ms-overflow-style: none;
   scrollbar-width: none;
   border: none;
+  background-color: var(--color-base);
 }
 
 .c-modern-sidebar::-webkit-scrollbar {
