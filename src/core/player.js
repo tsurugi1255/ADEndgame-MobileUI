@@ -953,8 +953,8 @@ window.player = {
     hiddenSubtabBits: Array.repeat(0, 11),
     lastOpenTab: 0,
     lastOpenSubtab: Array.repeat(0, 11),
-    perkLayout: 0,
-    perkPhysicsEnabled: true,
+    perkLayout: 2,
+    perkPhysicsEnabled: false,
     automatorEvents: {
       newestFirst: false,
       timestampType: 0,
