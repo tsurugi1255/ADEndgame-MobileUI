@@ -391,9 +391,9 @@ export const PerkNetwork = {
       const mod = Theme.current().name === "S4"
         ? 10 * Math.sin(5 * PerkNetwork.pulseTimer + 0.1 * perk._config.id)
         : 0;
-      if (perk._config.label === "START") return 105 + mod;
-      if (perk.isBought) return 128 + mod;
-      if (perk.canBeBought) return 138 + mod;
+      // if (perk._config.label === "START") return 105 + mod;
+      // if (perk.isBought) return 128 + mod;
+      // if (perk.canBeBought) return 138 + mod;
       return 65 + mod;
     }
 
