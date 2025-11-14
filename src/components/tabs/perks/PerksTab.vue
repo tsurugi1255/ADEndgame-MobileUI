@@ -241,7 +241,7 @@ export const PerkNetwork = {
         hoverConnectedEdges: false,
         selectConnectedEdges: false,
         tooltipDelay: 0,
-        dragView: false,
+        // dragView: false,
         zoomView: false,
         dragNodes: false,
       },
