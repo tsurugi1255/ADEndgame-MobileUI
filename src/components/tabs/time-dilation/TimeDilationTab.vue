@@ -1,4 +1,5 @@
 <script>
+import { buyDilationUpgrade } from "../../../core/dilation";
 import DilationButton from "./DilationButton";
 import DilationUpgradeButton from "./DilationUpgradeButton";
 import HoldableButton from "@/components/HoldableButton";
@@ -94,6 +95,23 @@ export default {
       if (this.hasPelleDilationUpgrades) upgradeRows.push(...this.pelleRebuyables);
       return upgradeRows;
     },
+    allRebuyablesUpgradeOrder() {
+      if(this.hasPelleDilationUpgrades) {
+        return [
+          DilationUpgrade.dtGainPelle.id,
+          DilationUpgrade.dtGain.id,
+          DilationUpgrade.galaxyMultiplier.id,
+          DilationUpgrade.galaxyThreshold.id,
+          DilationUpgrade.tickspeedPower.id,
+        ];
+      } else {
+        return [
+          DilationUpgrade.tachyonGain.id,
+          DilationUpgrade.dtGain.id,
+          DilationUpgrade.galaxyThreshold.id
+        ];
+      }
+    },
     allSingleUpgrades() {
       const upgradeRows = [];
       upgradeRows.push(...this.upgrades);
@@ -141,7 +159,7 @@ export default {
     },
     buyAllRebuyables() {
       for(const id of this.allRebuyablesUpgradeOrder) {
-        buyDilationUpgrade(id, 1000);
+        buyDilationUpgrade(id, 100);
       }
     }
   }
