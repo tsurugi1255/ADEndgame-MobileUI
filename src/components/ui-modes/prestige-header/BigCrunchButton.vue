@@ -1,4 +1,6 @@
 <script>
+import { Tesseracts } from '../../../core/globals';
+
 export default {
   name: "BigCrunchButton",
   data() {
@@ -95,6 +97,9 @@ export default {
     crunch() {
       if (!Player.canCrunch) return;
       manualBigCrunchResetRequest();
+    },
+    buyTesseract() {
+      Tesseracts.buyTesseract();
     }
   },
 };
@@ -148,7 +153,7 @@ export default {
     v-else-if="tesseractAffordable"
     class="o-prestige-button c-game-header__tesseract-available"
     :class="{ 'o-pelle-disabled-pointer': creditsClosed }"
-    @click="switchToInfinity"
+    @click="buyTesseract"
   >
     <b>
       You have enough Infinity Points to buy a Tesseract
