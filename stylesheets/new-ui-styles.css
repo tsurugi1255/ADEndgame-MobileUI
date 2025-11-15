@@ -125,8 +125,8 @@ body.t-s12 {
 
 .o-tab-btn {
   height: 100%;
-  flex: 1 1 15vw;
-  min-width: 12vw;
+  flex: 1;
+  /* min-width: 12vw; */
   position: relative;
   font-size: 3rem;
   border-radius: 0;
