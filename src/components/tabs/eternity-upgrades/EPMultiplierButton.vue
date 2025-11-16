@@ -78,7 +78,7 @@ export default {
       Cost: {{ quantify("Eternity Point", cost, 2, 0) }}
     </button>
     <PrimaryButton
-      class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon"
+      class="l--spoon-btn-group__little-spoon o-primary-btn--small-spoon l-eternity-multiplier-buymax"
       @click="upgrade.buyMax(false)"
     >
       Max Eternity Point mult
@@ -95,5 +95,14 @@ export default {
 <style scoped>
 .l-margin-top {
   margin-top: 0.55rem;
+}
+
+.l-eternity-multiplier-buymax {
+  font-size: 2.5rem;
+  font-weight: normal;
+  width: calc(50vw - 3rem);
+  align-self: auto;
+  padding: 1rem;
+  height: auto;
 }
 </style>

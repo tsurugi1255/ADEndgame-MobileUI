@@ -14,10 +14,12 @@ export default {
         [
           EternityUpgrade.idMultEP,
           EternityUpgrade.idMultEternities,
-          EternityUpgrade.idMultICRecords
         ],
         [
+          EternityUpgrade.idMultICRecords,
           EternityUpgrade.tdMultAchs,
+        ],
+        [
           EternityUpgrade.tdMultTheorems,
           EternityUpgrade.tdMultRealTime,
         ]
@@ -33,6 +35,7 @@ export default {
 
 <template>
   <div class="l-eternity-upgrades-grid">
+    <EPMultiplierButton class="l-eternity-multiplier-btn" />
     <div
       v-for="(row, i) in grid"
       :key="i"
@@ -45,7 +48,6 @@ export default {
         class="l-eternity-upgrades-grid__cell"
       />
     </div>
-    <EPMultiplierButton />
     <div>
       The cost for the {{ formatX(5) }} multiplier jumps at {{ format(costIncreases[0]) }},
       {{ formatPostBreak(costIncreases[1], 2) }}, and {{ formatPostBreak(costIncreases[2]) }} Eternity Points.
@@ -61,6 +63,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  font-size: 2.5rem;
 }
 
 .l-eternity-upgrades-grid__row {
@@ -70,5 +73,13 @@ export default {
 
 .l-eternity-upgrades-grid__cell {
   margin: 0.5rem 0.8rem;
+}
+
+.l-eternity-multiplier-btn {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 </style>
