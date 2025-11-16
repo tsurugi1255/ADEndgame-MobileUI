@@ -1625,7 +1625,7 @@ br {
 
 .c-game-tab {
   padding-bottom: 2rem;
-  margin-bottom: 40rem;
+  margin-bottom: 70rem;
 }
 
 .c-wide-canvas-element {
@@ -5169,9 +5169,9 @@ properly on certain themes. */
   cursor: pointer;
 }
 
-.o-dilation-btn--unlocked:hover {
+/* .o-dilation-btn--unlocked:hover {
   background-color: white;
-}
+} */
 
 .t-dark .o-dilation-btn--unlocked {
   color: var(--color-dilation);

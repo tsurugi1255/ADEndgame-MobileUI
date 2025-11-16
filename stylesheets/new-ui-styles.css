@@ -68,7 +68,7 @@ body.t-s12 {
   height: 100%;
   justify-content: flex-start;
   align-items: stretch;
-  font-family: 'Trebuchet MS', serif;
+  font-family: 'Trebuchet MS', sans-serif;
   background: none;
   margin: auto;
 }
