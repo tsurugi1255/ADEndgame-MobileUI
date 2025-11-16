@@ -151,10 +151,12 @@ export default {
 .o-dilation-upgrade {
   width: 100%;
   height: 23rem;
-  font-size: 2.2rem;
-  font-family: TypeWriter, serif;
+  font-size: 2.5rem;
+  /* font-family: TypeWriter, serif; */
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: bold;
   background: black;
-  border: 0.1rem solid;
+  border: 0.2rem solid;
   border-radius: var(--var-border-radius, 2rem);
   transition-duration: 0.2s;
   padding: 1rem;
@@ -163,7 +165,7 @@ export default {
 .o-dilation-upgrade--available {
   color: var(--color-dilation);
   border-color: var(--color-dilation);
-  animation: a-dilation-btn-glow 10s infinite;
+  /* animation: a-dilation-btn-glow 10s infinite; */
   cursor: pointer;
 }
 
@@ -172,9 +174,9 @@ export default {
   border-color: #64ddad;
 }
 
-.o-dilation-upgrade--available:hover {
+/* .o-dilation-upgrade--available:hover {
   background-color: white;
-}
+} */
 
 .o-dilation-upgrade--bought,
 .o-dilation-upgrade--capped {
@@ -199,13 +201,13 @@ export default {
   border-color: #64ddad;
 }
 
-.o-dilation-upgrade--unavailable:hover {
+/* .o-dilation-upgrade--unavailable:hover {
   color: #1d1d1d;
   background-color: #660000;
-}
+} */
 
 .o-dilation-upgrade__description--small-text {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .s-base--metro .o-dilation-upgrade--unavailable,

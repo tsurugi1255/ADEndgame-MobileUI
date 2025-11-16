@@ -6,6 +6,11 @@ html {
   font-size: 62.5%;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 ::-webkit-scrollbar {
   width: 1.6rem;
 }
@@ -1648,10 +1653,10 @@ br {
   cursor: pointer;
 }
 
-.o-primary-btn:hover {
+/* .o-primary-btn:hover {
   color: var(--color-text-inverted);
   background-color: var(--color-good);
-}
+} */
 
 .o-primary-btn--disabled {
   background-color: #a3a3a3;
@@ -1659,9 +1664,9 @@ br {
   cursor: default;
 }
 
-.o-primary-btn--disabled:hover {
+/* .o-primary-btn--disabled:hover {
   background-color: var(--color-bad);
-}
+} */
 
 /* #region modifiers */
 
@@ -1827,10 +1832,12 @@ br {
 
 .o-primary-btn--dilation-upgrade-toggle {
   font-size: 2rem;
+  font-family: 'Trebuchet MS', sans-serif;
   height: auto;
   padding: 1rem;
   border-radius: var(--var-border-radius, 1rem);
   font-weight: normal;
+  margin-top: 1rem !important;
 }
 
 .o-primary-btn--reality-upgrade-toggle {
@@ -5131,10 +5138,10 @@ properly on certain themes. */
 /* #region o-dilation-btn */
 
 .o-dilation-btn {
-  width: 40vw;
-  height: 15vw;
-  font-family: Typewriter, serif;
-  font-size: 2.2rem;
+  width: calc(50vw - 3rem);
+  height: 23rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 2.5rem;
   font-weight: bold;
   border: var(--var-border-width, 0.2rem) solid var(--color-dilation);
   border-radius: var(--var-border-radius, 2rem);
@@ -5152,7 +5159,7 @@ properly on certain themes. */
 .o-dilation-btn--unlocked {
   color: var(--color-dilation);
   background-color: black;
-  animation: a-dilation-btn-glow 10s infinite;
+  /* animation: a-dilation-btn-glow 10s infinite; */
   cursor: pointer;
 }
 

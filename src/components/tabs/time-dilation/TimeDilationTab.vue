@@ -179,37 +179,40 @@ export default {
     >
       <DilationButton />
     </div>
-    <span>
-      You have
-      <span class="c-dilation-tab__dilated-time">{{ format(dilatedTime, 2, 1) }}</span>
-      Dilated Time.
-      <span class="c-dilation-tab__dilated-time-income">{{ dilatedTimeGainText }}/s</span>
-    </span>
-    <span>
-      Next
-      <span v-if="tachyonGalaxyGain > 1">{{ formatInt(tachyonGalaxyGain) }}</span>
-      {{ pluralize("Tachyon Galaxy", tachyonGalaxyGain) }} at
-      <span
-        class="c-dilation-tab__galaxy-threshold"
-        :ach-tooltip="galaxyTimeEstimate"
-      >{{ format(galaxyThreshold, 2, 1) }}</span>
-      Dilated Time, gained total of
-      <span
-        class="c-dilation-tab__galaxies"
-        :ach-tooltip="baseGalaxyText"
-      >{{ formatInt(totalGalaxies) }}</span>
-      {{ pluralize("Tachyon Galaxy", totalGalaxies) }}
-    </span>
-    <span v-if="hasMaxText">
-      Your maximum Dilated Time reached this Reality is
-      <span
-        v-tooltip="toMaxTooltip"
-        class="max-accent"
-      >{{ format(maxDT, 2, 1) }}</span>.
-    </span>
-    <span v-if="isEndgameUnlocked">
-      Past {{ format(scaleStart, 2, 1) }} Dilated Time, all rebuyable Dilation Upgrades will scale faster.
-    </span>
+    <div class="c-dilation-tab__dilation-info-text">
+      <span>
+        You have
+        <span class="c-dilation-tab__dilated-time">{{ format(dilatedTime, 2, 1) }}</span>
+        Dilated Time.
+        <span class="c-dilation-tab__dilated-time-income">{{ dilatedTimeGainText }}/s</span>
+      </span>
+      <span>
+        Next
+        <span v-if="tachyonGalaxyGain > 1">{{ formatInt(tachyonGalaxyGain) }}</span>
+        {{ pluralize("Tachyon Galaxy", tachyonGalaxyGain) }} at
+        <span
+          class="c-dilation-tab__galaxy-threshold"
+          :ach-tooltip="galaxyTimeEstimate"
+        >{{ format(galaxyThreshold, 2, 1) }}</span>
+        Dilated Time, gained total of
+        <span
+          class="c-dilation-tab__galaxies"
+          :ach-tooltip="baseGalaxyText"
+        >{{ formatInt(totalGalaxies) }}</span>
+        {{ pluralize("Tachyon Galaxy", totalGalaxies) }}
+      </span>
+      <span v-if="hasMaxText">
+        Your maximum Dilated Time reached this Reality is
+        <span
+          v-tooltip="toMaxTooltip"
+          class="max-accent"
+        >{{ format(maxDT, 2, 1) }}</span>.
+      </span>
+      <span v-if="isEndgameUnlocked">
+        Past {{ format(scaleStart, 2, 1) }} Dilated Time, all rebuyable Dilation Upgrades will scale faster.
+      </span>
+    </div>
+    
     <HoldableButton
       v-if="isEndgameUnlocked || isRealityUnlocked" 
       className="maxButton" 
@@ -252,6 +255,9 @@ export default {
 </template>
 
 <style scoped>
+.c-dilation-tab__dilation-info-text {
+  padding: 0 5rem;
+}
 .max-accent {
   color: var(--color-dilation);
   font-size: 1.5rem;
@@ -260,12 +266,12 @@ export default {
 }
 
 .maxButton {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color-text);
   background-color: var(--color-base);
   width: calc(50% - 0.5rem);
   padding: 1rem;
-  font-family: TypeWriter, serif;
+  font-family: 'Trebuchet MS', sans-serif;
   border: 0.1rem solid var(--color-good-dark);
   border-radius: var(--var-border-radius, 1rem);
   margin-top: 2rem;
